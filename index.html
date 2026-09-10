@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>دعوة كتب كتاب — مجدي وهاجر</title>
+    <meta
+      name="description"
+      content="ندعوكم لحضور كتب كتاب مجدي إبراهيم علي وهاجر عصام فليلة — الأربعاء ١١ نوفمبر ٢٠٢٦، مسجد نصار، ميت مزاح."
+    />
+
+    <!-- Open Graph / WhatsApp preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_EG" />
+    <meta property="og:title" content="دعوة كتب كتاب — مجدي وهاجر" />
+    <meta
+      property="og:description"
+      content="الأربعاء ١١ نوفمبر ٢٠٢٦ · بعد صلاة العصر · مسجد نصار، ميت مزاح"
+    />
+    <meta property="og:image" content="assets/img/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="دعوة كتب كتاب — مجدي وهاجر" />
+    <meta
+      name="twitter:description"
+      content="الأربعاء ١١ نوفمبر ٢٠٢٦ · بعد صلاة العصر · مسجد نصار، ميت مزاح"
+    />
+    <meta name="twitter:image" content="assets/img/og.jpg" />
+
+    <link rel="preload" as="image" href="assets/img/hero.jpg" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/handkerchief.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <!-- ١. المنديل — شاشة البداية -->
+    <div
+      id="handkerchief"
+      class="handkerchief"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="handkerchief-monogram"
+    >
+      <div class="handkerchief__cloth" data-strips="14" aria-hidden="true"></div>
+      <div class="handkerchief__face">
+        <svg
+          class="handkerchief__embroidery"
+          viewBox="0 0 200 200"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <!-- Outer stitch frame -->
+          <rect
+            class="handkerchief__stitch"
+            x="10"
+            y="10"
+            width="180"
+            height="180"
+            rx="10"
+            fill="none"
+          />
+          <!-- Inner geometric frame -->
+          <rect
+            class="handkerchief__stitch"
+            x="28"
+            y="28"
+            width="144"
+            height="144"
+            rx="4"
+            fill="none"
+          />
+          <!-- Corner arabesque flourishes -->
+          <path
+            class="handkerchief__stitch"
+            fill="none"
+            d="M28 52 C28 40 40 28 52 28 M148 28 C160 28 172 40 172 52 M172 148 C172 160 160 172 148 172 M52 172 C40 172 28 160 28 148"
+          />
+          <path
+            class="handkerchief__stitch"
+            fill="none"
+            d="M40 40 L52 34 L58 46 L46 52 Z M160 40 L148 34 L142 46 L154 52 Z M160 160 L148 166 L142 154 L154 148 Z M40 160 L52 166 L58 154 L46 148 Z"
+          />
+          <!-- Center octagon around monogram -->
+          <polygon
+            class="handkerchief__stitch"
+            fill="none"
+            points="100,58 130,70 142,100 130,130 100,142 70,130 58,100 70,70"
+          />
+          <!-- Tiny stitch dots on mid-sides -->
+          <circle class="handkerchief__stitch-dot" cx="100" cy="18" r="1.4" />
+          <circle class="handkerchief__stitch-dot" cx="100" cy="182" r="1.4" />
+          <circle class="handkerchief__stitch-dot" cx="18" cy="100" r="1.4" />
+          <circle class="handkerchief__stitch-dot" cx="182" cy="100" r="1.4" />
+        </svg>
+        <p id="handkerchief-monogram" class="handkerchief__monogram">م &amp; هـ</p>
+        <p class="handkerchief__label">كتب كتاب</p>
+      </div>
+      <p class="handkerchief__hint">
+        <span>اسحب لفتح الدعوة</span>
+        <span class="handkerchief__hint-arrow" aria-hidden="true"></span>
+      </p>
+    </div>
+
+    <main id="invite" hidden>
+      <!-- ٢. الافتتاحية -->
+      <header
+        class="hero section reveal"
+        style="background-image: url('assets/img/hero.jpg')"
+      >
+        <div class="hero__content container">
+          <p class="hero__basmala">بسم الله الرحمن الرحيم</p>
+          <p class="hero__verse" data-config="verses.opening"></p>
+          <div class="hero__names">
+            <span data-config="groom.name"></span>
+            <span class="hero__amp" aria-hidden="true">&amp;</span>
+            <span data-config="bride.name"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ٣. العدّاد -->
+      <section class="countdown section reveal" aria-labelledby="countdown-title">
+        <div class="container">
+          <h2 id="countdown-title" class="section__title">العدّ التنازلي</h2>
+          <div id="countdown" class="countdown__grid" aria-live="polite">
+            <div class="countdown__card">
+              <div class="countdown__value" data-unit="days">—</div>
+              <div class="countdown__unit">يوم</div>
+            </div>
+            <div class="countdown__card">
+              <div class="countdown__value" data-unit="hours">—</div>
+              <div class="countdown__unit">ساعة</div>
+            </div>
+            <div class="countdown__card">
+              <div class="countdown__value" data-unit="minutes">—</div>
+              <div class="countdown__unit">دقيقة</div>
+            </div>
+            <div class="countdown__card">
+              <div class="countdown__value" data-unit="seconds">—</div>
+              <div class="countdown__unit">ثانية</div>
+            </div>
+          </div>
+          <p id="countdown-done" class="countdown__done" hidden>تم بحمد الله</p>
+        </div>
+      </section>
+
+      <!-- ٤. الصورة المقرّبة -->
+      <section
+        class="detail-band reveal"
+        style="background-image: url('assets/img/detail.jpg')"
+        aria-label="اقتباس"
+      >
+        <p class="detail-band__quote" data-config="verses.detail"></p>
+      </section>
+
+      <!-- ٥. التفاصيل -->
+      <section class="details section reveal" aria-labelledby="details-title">
+        <div class="container">
+          <h2 id="details-title" class="section__title">التفاصيل</h2>
+          <div class="details__grid">
+            <article class="details__card">
+              <svg class="details__icon" viewBox="0 0 48 48" aria-hidden="true">
+                <rect
+                  x="8"
+                  y="12"
+                  width="32"
+                  height="28"
+                  rx="3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 20h32M18 8v8M30 8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="details__label">التاريخ</p>
+              <p class="details__value" data-config="dateDisplay"></p>
+            </article>
+            <article class="details__card">
+              <svg class="details__icon" viewBox="0 0 48 48" aria-hidden="true">
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M24 16v9l6 4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="details__label">الوقت</p>
+              <p class="details__value" data-config="timeDisplay"></p>
+            </article>
+            <article class="details__card">
+              <svg class="details__icon" viewBox="0 0 48 48" aria-hidden="true">
+                <path
+                  d="M24 8c-7 0-12 5-12 12 0 9 12 20 12 20s12-11 12-20c0-7-5-12-12-12z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="24"
+                  cy="20"
+                  r="4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+              <p class="details__label">المكان</p>
+              <p class="details__value">
+                <span data-config="venue.name"></span>
+                <br />
+                <span data-config="venue.address"></span>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ٦. الخريطة -->
+      <section class="map-section section reveal" aria-labelledby="map-title">
+        <div class="container">
+          <h2 id="map-title" class="section__title">الموقع</h2>
+          <div class="map-section__frame">
+            <div id="venue-map" role="img" aria-label="خريطة موقع الحفل"></div>
+          </div>
+          <div class="map-section__actions">
+            <a
+              id="open-maps"
+              class="btn"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >افتح في جوجل ماب</a
+            >
+            <a
+              id="open-directions"
+              class="btn btn--ghost"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >الاتجاهات</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ٧. مبرمج × ممرضة -->
+      <section class="couple section reveal" aria-labelledby="couple-title">
+        <div class="container">
+          <h2 id="couple-title" class="section__title">مبرمج × ممرضة</h2>
+          <div class="couple__grid">
+            <article class="couple__card couple__card--code" aria-label="ناحية العريس">
+              <div class="couple__toolbar" aria-hidden="true">
+                <span class="couple__dot"></span>
+                <span class="couple__dot"></span>
+                <span class="couple__dot"></span>
+              </div>
+              <pre id="couple-code" class="couple__code"></pre>
+            </article>
+            <div class="couple__heart" aria-hidden="true">♥</div>
+            <article class="couple__card couple__card--ecg" aria-label="ناحية العروسة">
+              <svg
+                class="couple__ecg"
+                id="couple-ecg"
+                viewBox="0 0 320 80"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  d="M0 40 H40 L55 40 L70 10 L85 70 L100 40 H160 L175 40 L190 10 L205 70 L220 40 H320"
+                />
+              </svg>
+              <p class="couple__pulse-note">معدل النبض: يزيد كل ما اسمه يتذكر</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ٨. الخاتمة -->
+      <section class="closing section reveal" aria-labelledby="closing-title">
+        <div class="container">
+          <h2 id="closing-title" class="visually-hidden">خاتمة</h2>
+          <p class="closing__dua" data-config="verses.closing"></p>
+          <div class="closing__actions">
+            <button type="button" id="add-to-calendar" class="btn">أضف للتقويم</button>
+            <button type="button" id="share-invite" class="btn btn--ghost">مشاركة</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        موسيقى الخلفية من
+        <a href="https://incompetech.com/" target="_blank" rel="noopener noreferrer"
+          >Kevin MacLeod / incompetech</a
+        >
+        — رخصة CC BY 4.0
+      </p>
+    </footer>
+
+    <!-- مشغّل صوت عائم -->
+    <div class="audio-player" id="audio-player" hidden>
+      <button
+        type="button"
+        class="audio-player__btn is-paused"
+        id="audio-toggle"
+        aria-label="تشغيل الموسيقى"
+        aria-pressed="false"
+      >
+        ♪
+      </button>
+      <button
+        type="button"
+        class="audio-player__btn audio-player__btn--ghost"
+        id="audio-next"
+        aria-label="التراك التالي"
+      >
+        ↻
+      </button>
+      <audio id="bg-audio" preload="none" loop></audio>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/handkerchief.js" defer></script>
+    <script src="assets/js/audio.js" defer></script>
+    <script src="assets/js/countdown.js" defer></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script src="assets/js/map.js" defer></script>
+    <script src="assets/js/calendar.js" defer></script>
+    <script src="assets/js/effects.js" defer></script>
+    <script src="assets/js/couple.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
