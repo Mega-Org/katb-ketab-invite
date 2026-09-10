@@ -173,7 +173,7 @@
   }
 
   window.addEventListener('invite:opened', onOpened);
-  // If handkerchief already dismissed in a later flow, still safe:
+  // If the intro has already finished, initialize immediately:
   if (document.getElementById('invite') && !document.getElementById('invite').hidden) {
     onOpened();
   }

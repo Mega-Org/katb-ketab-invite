@@ -4,11 +4,11 @@
  */
 window.INVITE_CONFIG = Object.freeze({
   groom: {
-    name: 'مجدي إبراهيم علي',
+    name: 'مجدي',
     title: 'مهندس برمجيات',
   },
   bride: {
-    name: 'هاجر عصام فليلة',
+    name: 'هاجر',
     title: 'كلية التمريض',
   },
   monogram: 'م & هـ',
@@ -43,43 +43,15 @@ window.INVITE_CONFIG = Object.freeze({
   },
 
   audio: {
-    /** Default track id from `tracks` (or 'my-song') */
-    defaultTrackId: 'ibn-al-noor',
+    /** Default track id from `tracks` */
+    defaultTrackId: 'anisat-rouhi',
     fadeInMs: 3000,
     tracks: [
       {
-        id: 'ibn-al-noor',
-        title: 'Ibn Al-Noor',
-        artist: 'Kevin MacLeod',
-        src: 'assets/audio/track-01.mp3',
-        license: 'CC BY 4.0',
-      },
-      {
-        id: 'desert-city',
-        title: 'Desert City',
-        artist: 'Kevin MacLeod',
-        src: 'assets/audio/track-02.mp3',
-        license: 'CC BY 4.0',
-      },
-      {
-        id: 'mystery-bazaar',
-        title: 'Mystery Bazaar',
-        artist: 'Kevin MacLeod',
-        src: 'assets/audio/track-03.mp3',
-        license: 'CC BY 4.0',
-      },
-      {
-        id: 'sweeter-vermouth',
-        title: 'Sweeter Vermouth',
-        artist: 'Kevin MacLeod',
-        src: 'assets/audio/track-04.mp3',
-        license: 'CC BY 4.0',
-      },
-      {
-        id: 'my-song',
-        title: 'أغنيتي',
-        artist: '',
-        src: 'assets/audio/my-song.mp3',
+        id: 'anisat-rouhi',
+        title: 'أنيسة روحي',
+        artist: 'زياد أيمن',
+        src: 'assets/audio/anisat-rouhi.mp3',
         license: '',
       },
     ],
@@ -88,7 +60,7 @@ window.INVITE_CONFIG = Object.freeze({
   calendar: {
     title: 'كتب كتاب مجدي وهاجر',
     description:
-      'كتب كتاب مجدي إبراهيم علي وهاجر عصام فليلة — مسجد نصار، ميت مزاح، مركز المنصورة.',
+      'كتب كتاب مجدي وهاجر — مسجد نصار، ميت مزاح، مركز المنصورة.',
     durationMinutes: 120,
   },
 });

@@ -6,7 +6,7 @@
     <title>دعوة كتب كتاب — مجدي وهاجر</title>
     <meta
       name="description"
-      content="ندعوكم لحضور كتب كتاب مجدي إبراهيم علي وهاجر عصام فليلة — الأربعاء ١١ نوفمبر ٢٠٢٦، مسجد نصار، ميت مزاح."
+      content="ندعوكم لحضور كتب كتاب مجدي وهاجر — الأربعاء ١١ نوفمبر ٢٠٢٦، مسجد نصار، ميت مزاح."
     />
 
     <!-- Open Graph / WhatsApp preview -->
@@ -26,9 +26,12 @@
     />
     <meta name="twitter:image" content="assets/img/og.jpg" />
 
-    <link rel="preload" as="image" href="assets/img/hero.jpg" />
+    <meta name="theme-color" content="#f5f0e7" />
+    <link rel="preload" as="image" href="assets/video/poster.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/handkerchief.css" />
+    <link rel="stylesheet" href="assets/css/intro.css" />
     <link rel="stylesheet" href="assets/css/sections.css" />
     <link
       rel="stylesheet"
@@ -37,96 +40,46 @@
       crossorigin=""
     />
   </head>
-  <body>
-    <!-- ١. المنديل — شاشة البداية -->
-    <div
-      id="handkerchief"
-      class="handkerchief"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="handkerchief-monogram"
-    >
-      <div class="handkerchief__cloth" data-strips="14" aria-hidden="true"></div>
-      <div class="handkerchief__face">
-        <svg
-          class="handkerchief__embroidery"
-          viewBox="0 0 200 200"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <!-- Outer stitch frame -->
-          <rect
-            class="handkerchief__stitch"
-            x="10"
-            y="10"
-            width="180"
-            height="180"
-            rx="10"
-            fill="none"
-          />
-          <!-- Inner geometric frame -->
-          <rect
-            class="handkerchief__stitch"
-            x="28"
-            y="28"
-            width="144"
-            height="144"
-            rx="4"
-            fill="none"
-          />
-          <!-- Corner arabesque flourishes -->
-          <path
-            class="handkerchief__stitch"
-            fill="none"
-            d="M28 52 C28 40 40 28 52 28 M148 28 C160 28 172 40 172 52 M172 148 C172 160 160 172 148 172 M52 172 C40 172 28 160 28 148"
-          />
-          <path
-            class="handkerchief__stitch"
-            fill="none"
-            d="M40 40 L52 34 L58 46 L46 52 Z M160 40 L148 34 L142 46 L154 52 Z M160 160 L148 166 L142 154 L154 148 Z M40 160 L52 166 L58 154 L46 148 Z"
-          />
-          <!-- Center octagon around monogram -->
-          <polygon
-            class="handkerchief__stitch"
-            fill="none"
-            points="100,58 130,70 142,100 130,130 100,142 70,130 58,100 70,70"
-          />
-          <!-- Tiny stitch dots on mid-sides -->
-          <circle class="handkerchief__stitch-dot" cx="100" cy="18" r="1.4" />
-          <circle class="handkerchief__stitch-dot" cx="100" cy="182" r="1.4" />
-          <circle class="handkerchief__stitch-dot" cx="18" cy="100" r="1.4" />
-          <circle class="handkerchief__stitch-dot" cx="182" cy="100" r="1.4" />
-        </svg>
-        <p id="handkerchief-monogram" class="handkerchief__monogram">م &amp; هـ</p>
-        <p class="handkerchief__label">كتب كتاب</p>
-      </div>
-      <p class="handkerchief__hint">
-        <span>اسحب لفتح الدعوة</span>
-        <span class="handkerchief__hint-arrow" aria-hidden="true"></span>
-      </p>
+  <body class="intro-active">
+    <noscript><style>#intro{display:none}body{overflow:auto!important}</style><p class="container">دعوة كتب كتاب مجدي وهاجر — الأربعاء ١١ نوفمبر ٢٠٢٦، بعد صلاة العصر، مسجد نصار، ميت مزاح. فعّل JavaScript لعرض الدعوة التفاعلية.</p></noscript>
+    <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+      <video id="intro-video" class="intro__video" preload="auto" playsinline muted poster="assets/video/poster.jpg" aria-label="ظرف دعوة زفاف مجدي وهاجر">
+        <source src="assets/video/envelope.mp4" type="video/mp4" />
+      </video>
+      <div class="intro__heading"><span class="eyebrow">بكل الحب، ندعوكم</span><h1 id="intro-title">مجدي وهاجر</h1></div>
+      <button id="intro-start" class="intro__start" type="button"><span class="intro__seal" aria-hidden="true">↗</span><span id="intro-hint">المس الشاشة لفتح الدعوة</span><small>بداية حكايتنا… بحضوركم</small></button>
+      <button id="intro-skip" class="intro__skip" type="button">تخطي المقدمة <span aria-hidden="true">←</span></button>
+      <div class="intro__progress" aria-hidden="true"><span id="intro-progress"></span></div>
+      <p id="intro-status" class="visually-hidden" role="status"></p>
     </div>
 
     <main id="invite" hidden>
-      <!-- ٢. الافتتاحية -->
-      <header
-        class="hero section reveal"
-        style="background-image: url('assets/img/hero.jpg')"
-      >
+      <nav class="invite-nav container" aria-label="روابط الدعوة">
+        <a class="brand" href="#home" aria-label="مجدي وهاجر" dir="ltr">M<span>&</span>H</a>
+        <span class="invite-nav__label">دعوة بكل الحب</span>
+        <a href="#details">تفاصيل اليوم <span aria-hidden="true">↙</span></a>
+      </nav>
+      <header id="home" class="hero section">
+        <div class="hero__arch" aria-hidden="true"></div>
         <div class="hero__content container">
           <p class="hero__basmala">بسم الله الرحمن الرحيم</p>
-          <p class="hero__verse" data-config="verses.opening"></p>
-          <div class="hero__names">
-            <span data-config="groom.name"></span>
-            <span class="hero__amp" aria-hidden="true">&amp;</span>
-            <span data-config="bride.name"></span>
-          </div>
+          <p class="eyebrow hero__eyebrow">فرحتنا تكتمل بوجودكم</p>
+          <h1 id="invite-title" class="hero__names" tabindex="-1">
+            <span data-config="groom.name"></span><span class="hero__amp">و</span><span data-config="bride.name"></span>
+          </h1>
+          <p class="hero__invitation">بقلوبٍ يملؤها الحب، ندعوكم لمشاركتنا<br />فرحة عقد قراننا وبداية حكايتنا</p>
+          <div class="hero__date"><span>الأربعاء</span><strong dir="ltr">11 . 11 . 2026</strong><span>بعد صلاة العصر</span></div>
+          <a class="hero__link" href="#details">اكتشف تفاصيل يومنا <span aria-hidden="true">↓</span></a>
         </div>
+        <span class="hero__side" aria-hidden="true">THE BEGINNING OF OUR FOREVER</span>
+        <span class="hero__number" aria-hidden="true">01 — بداية الحكاية</span>
       </header>
+      <section class="verse-section section reveal"><div class="container"><span class="ornament" aria-hidden="true">✧</span><p class="hero__verse" data-config="verses.opening"></p><p class="verse-section__end" data-config="verses.detail"></p></div></section>
 
       <!-- ٣. العدّاد -->
       <section class="countdown section reveal" aria-labelledby="countdown-title">
         <div class="container">
-          <h2 id="countdown-title" class="section__title">العدّ التنازلي</h2>
+          <p class="eyebrow">نعدّ اللحظات حتى نلقاكم</p><h2 id="countdown-title" class="section__title">اقترب موعد فرحتنا</h2>
           <div id="countdown" class="countdown__grid" aria-live="polite">
             <div class="countdown__card">
               <div class="countdown__value" data-unit="days">—</div>
@@ -149,19 +102,10 @@
         </div>
       </section>
 
-      <!-- ٤. الصورة المقرّبة -->
-      <section
-        class="detail-band reveal"
-        style="background-image: url('assets/img/detail.jpg')"
-        aria-label="اقتباس"
-      >
-        <p class="detail-band__quote" data-config="verses.detail"></p>
-      </section>
-
       <!-- ٥. التفاصيل -->
-      <section class="details section reveal" aria-labelledby="details-title">
+      <section id="details" class="details section reveal" aria-labelledby="details-title">
         <div class="container">
-          <h2 id="details-title" class="section__title">التفاصيل</h2>
+          <p class="eyebrow">موعد مع الفرح</p><h2 id="details-title" class="section__title">يومٌ ننتظره… معكم</h2>
           <div class="details__grid">
             <article class="details__card">
               <svg class="details__icon" viewBox="0 0 48 48" aria-hidden="true">
@@ -238,7 +182,7 @@
       <!-- ٦. الخريطة -->
       <section class="map-section section reveal" aria-labelledby="map-title">
         <div class="container">
-          <h2 id="map-title" class="section__title">الموقع</h2>
+          <p class="eyebrow">هنا نبدأ حكايتنا</p><h2 id="map-title" class="section__title">نلتقي في مسجد نصار</h2><p class="section__subtitle" data-config="venue.address"></p>
           <div class="map-section__frame">
             <div id="venue-map" role="img" aria-label="خريطة موقع الحفل"></div>
           </div>
@@ -266,7 +210,7 @@
       <!-- ٧. مبرمج × ممرضة -->
       <section class="couple section reveal" aria-labelledby="couple-title">
         <div class="container">
-          <h2 id="couple-title" class="section__title">مبرمج × ممرضة</h2>
+          <p class="eyebrow">تفاصيل صغيرة تجمعنا</p><h2 id="couple-title" class="section__title">هو يكتب الكود، وهي نبض الحكاية</h2>
           <div class="couple__grid">
             <article class="couple__card couple__card--code" aria-label="ناحية العريس">
               <div class="couple__toolbar" aria-hidden="true">
@@ -302,7 +246,7 @@
       <section class="closing section reveal" aria-labelledby="closing-title">
         <div class="container">
           <h2 id="closing-title" class="visually-hidden">خاتمة</h2>
-          <p class="closing__dua" data-config="verses.closing"></p>
+          <span class="closing__monogram" aria-hidden="true" dir="ltr">M <i>&</i> H</span><p class="eyebrow">معكم، تصبح الفرحة أجمل</p><p class="closing__dua" data-config="verses.closing"></p>
           <div class="closing__actions">
             <button type="button" id="add-to-calendar" class="btn">أضف للتقويم</button>
             <button type="button" id="share-invite" class="btn btn--ghost">مشاركة</button>
@@ -311,13 +255,10 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" hidden>
+      <p class="footer-names">مجدي وهاجر · ١١ نوفمبر ٢٠٢٦</p>
       <p>
-        موسيقى الخلفية من
-        <a href="https://incompetech.com/" target="_blank" rel="noopener noreferrer"
-          >Kevin MacLeod / incompetech</a
-        >
-        — رخصة CC BY 4.0
+        موسيقى الخلفية: أنيسة روحي — زياد أيمن
       </p>
     </footer>
 
@@ -344,7 +285,7 @@
     </div>
 
     <script src="assets/js/config.js"></script>
-    <script src="assets/js/handkerchief.js" defer></script>
+    <script src="assets/js/intro.js" defer></script>
     <script src="assets/js/audio.js" defer></script>
     <script src="assets/js/countdown.js" defer></script>
     <script

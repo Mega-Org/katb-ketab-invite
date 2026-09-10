@@ -1,6 +1,6 @@
 /**
  * Background audio player.
- * Starts and reveals UI only after invite:opened (user gesture from handkerchief).
+ * Starts with the intro video and reveals its controls after the invitation opens.
  */
 (function () {
   const cfg = window.INVITE_CONFIG?.audio;
@@ -54,7 +54,7 @@
     const duration = cfg.fadeInMs || 3000;
     const started = performance.now();
     function step(now) {
-      const t = Math.min(1, (now - started) / duration);
+      const t = Math.max(0, Math.min(1, (now - started) / duration));
       audio.volume = t;
       if (t < 1) fadeRaf = requestAnimationFrame(step);
       else fadeRaf = 0;
@@ -110,6 +110,7 @@
 
   loadTrack();
   syncToggleUi();
+  if (nextBtn) nextBtn.hidden = cfg.tracks.length < 2;
 
   toggleBtn?.addEventListener('click', toggle);
   nextBtn?.addEventListener('click', () => next());
@@ -126,10 +127,14 @@
     if (document.hidden && !audio.paused) pause();
   });
 
+  window.addEventListener('invite:intro-started', play);
+  window.addEventListener('invite:intro-failed', pause);
+
   window.addEventListener('invite:opened', () => {
     inviteOpened = true;
     showPlayer();
-    play();
+    if (audio.paused) play();
+    else syncToggleUi();
   });
 
   window.InviteAudio = { play, toggle, next, pause };

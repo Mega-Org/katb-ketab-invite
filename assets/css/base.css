@@ -1,23 +1,23 @@
 /* Design tokens + RTL base — palette from couple photos */
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;450;500;600&display=swap');
 
 :root {
-  --mocha: #3e2b23;
-  --cocoa: #5a3e30;
-  --cream: #f5ede3;
-  --sand: #d9c4a9;
-  --gold: #b08a5a;
+  --mocha: #424a3d;
+  --cocoa: #646654;
+  --cream: #f5f0e7;
+  --sand: #ddd2bd;
+  --gold: #a08453;
   --sage: #7c8b6f;
 
   --text: var(--mocha);
   --text-muted: var(--cocoa);
   --bg: var(--cream);
-  --surface: #fffaf4;
+  --surface: #faf7f0;
   --border: color-mix(in srgb, var(--sand) 70%, var(--mocha));
   --shadow: color-mix(in srgb, var(--mocha) 18%, transparent);
 
-  --font-display: 'Reem Kufi', 'Segoe UI', Tahoma, sans-serif;
-  --font-body: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+  --font-display: 'Aref Ruqaa', 'Segoe UI', Tahoma, sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
 
   --space-xs: 0.35rem;
   --space-sm: 0.75rem;
@@ -29,7 +29,7 @@
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
 
-  --max-width: 42rem;
+  --max-width: 68rem;
   --header-offset: 0px;
 }
 
@@ -193,3 +193,6 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+[hidden] { display: none !important; }
+body.intro-active { overflow: hidden; }

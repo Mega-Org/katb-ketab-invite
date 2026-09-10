@@ -4,7 +4,7 @@
 (function () {
   const venue = window.INVITE_CONFIG?.venue;
   const mapEl = document.getElementById('venue-map');
-  if (!venue || !mapEl || typeof L === 'undefined') return;
+  if (!venue || !mapEl) return;
 
   const { lat, lng, name, address } = venue;
   const mapsSearch = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
@@ -14,6 +14,11 @@
   const openDir = document.getElementById('open-directions');
   if (openMaps) openMaps.href = mapsSearch;
   if (openDir) openDir.href = mapsDir;
+
+  if (typeof L === 'undefined') {
+    mapEl.textContent = 'يمكنك الوصول إلى المكان عبر أزرار الخريطة بالأسفل';
+    return;
+  }
 
   const map = L.map(mapEl, {
     scrollWheelZoom: false,

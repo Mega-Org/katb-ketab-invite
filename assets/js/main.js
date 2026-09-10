@@ -17,12 +17,6 @@
     }
   });
 
-  const monogram = document.getElementById('handkerchief-monogram');
-  if (monogram && cfg.monogram) monogram.textContent = cfg.monogram;
-
-  const label = document.querySelector('.handkerchief__label');
-  if (label && cfg.eventLabel) label.textContent = cfg.eventLabel;
-
   const shareBtn = document.getElementById('share-invite');
   shareBtn?.addEventListener('click', async () => {
     const url = cfg.share.url || window.location.href;

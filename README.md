@@ -13,7 +13,7 @@
 | الحقل | الاستخدام |
 | --- | --- |
 | `groom` / `bride` | الأسماء والألقاب |
-| `monogram` / `eventLabel` | المنديل والعنوان |
+| `monogram` / `eventLabel` | الحروف المختصرة والعنوان |
 | `datetime` | العدّاد والتقويم (ISO مع `+02:00` لتوقيت القاهرة) |
 | `dateDisplay` / `timeDisplay` | عرض التاريخ والوقت للزائر |
 | `venue.name` / `venue.address` | نصوص المكان |
@@ -25,18 +25,11 @@
 
 بعد التعديل أعد تحميل الصفحة — لا حاجة لبناء أو تجميع.
 
-## استبدال أغنيتك
+## الموسيقى
 
-1. ضع ملف MP3 باسم `my-song.mp3` في [`assets/audio/`](assets/audio/).
-2. في `config.js` داخل `audio` غيّر:
+ملف الموسيقى المستخدم هو [`assets/audio/anisat-rouhi.mp3`](assets/audio/anisat-rouhi.mp3)، وتفاصيله موجودة في `audio.tracks` داخل `config.js`. يبدأ التشغيل مع أول تفاعل يشغّل فيديو المقدمة، ويستمر بعد ظهور الدعوة. يظهر زر الإيقاف والتشغيل بعد انتهاء المقدمة.
 
-```js
-defaultTrackId: 'my-song',
-```
-
-التراك يظهر في القائمة كـ «أغنيتي». إن بقي الملف فارغاً أو فشل التشغيل، المشغّل يتجاوزه وينتقل للتراك التالي.
-
-التراكات الجاهزة (`track-01` … `track-04`) من Kevin MacLeod — انظر [رخصة الموسيقى](#رخصة-الموسيقى).
+لاستبداله، ضع ملف MP3 جديداً في `assets/audio/` وحدّث `src` والعنوان والفنان داخل `audio.tracks`.
 
 ## تصحيح دبوس الخريطة
 
@@ -76,23 +69,25 @@ venue: {
 
 لا حاجة لملف بناء أو أمر `npm` — الموقع ثابت.
 
-## رخصة الموسيقى
-
-موسيقى الخلفية من **Kevin MacLeod** عبر [incompetech.com](https://incompetech.com/) بموجب رخصة **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
-
-الإسناد موجود في تذييل الصفحة. عند إعادة التوزيع أبقِ ذكر المؤلف والرخصة.
-
 ## هيكل سريع
 
 ```
 index.html
 assets/
-  css/     base · handkerchief · sections
-  js/      config · handkerchief · audio · countdown · map · calendar · effects · couple · main
+  css/     base · intro · sections
+  js/      config · intro · audio · countdown · map · calendar · effects · couple · main
   img/     hero.jpg · detail.jpg · og.jpg
-  audio/   track-01…04.mp3 · my-song.mp3
+  audio/   anisat-rouhi.mp3
 ```
 
 ## خارج النطاق
 
 لا يوجد RSVP ولا إطار عمل ولا خطوة بناء — الإبقاء على vanilla مقصود.
+
+## المقدمة والتصميم الجديد
+
+الفيديو في `assets/video/envelope.mp4` (١٠ ثوانٍ)، ولقطة البداية الثابتة في `assets/video/poster.jpg`. لا يعمل تلقائياً: أول لمسة أو نقرة أو تمرير أو ضغطة مفتاح تبدأ التشغيل مكتوماً داخل الصفحة، ثم تظهر الدعوة بتلاشي هادئ عند نهاية الفيديو. زر «تخطي المقدمة» متاح دائماً، وإذا تعذّر التحميل يمكن فتح الدعوة مباشرة. عند استبدال الفيديو حدّث لقطة البداية أيضاً.
+
+التصميم كريمي وزيتوني بلمسات ذهبية؛ خط IBM Plex Sans Arabic للنصوص وAref Ruqaa للأسماء والعناوين، مع خطوط نظام بديلة عند عدم توفر الإنترنت. الأسماء الأولى فقط مستخدمة في الدعوة والمشاركة والتقويم. تفضيل تقليل الحركة يلغي حركة الانتقال والزخارف؛ يمكن تخطي الفيديو يدوياً.
+
+للمعاينة المحلية شغّل `python3 -m http.server 4173` ثم افتح `http://localhost:4173`.
