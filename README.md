@@ -19,7 +19,7 @@
 | `venue.name` / `venue.address` | نصوص المكان |
 | `venue.lat` / `venue.lng` | دبوس الخريطة وروابط جوجل ماب |
 | `verses` | الآيات والدعاء |
-| `share` | عنوان ونص المشاركة (و`url` بعد النشر) |
+| `share` | عنوان ونص ورابط المشاركة |
 | `audio` | التراك الافتراضي وقائمة الملفات |
 | `calendar` | عنوان ووصف حدث التقويم |
 
@@ -51,21 +51,15 @@ venue: {
 
 1. ارفع المشروع إلى مستودع GitHub.
 2. Settings → Pages → Source: الفرع `main` (أو `gh-pages`) ومجلد الجذر `/`.
-3. بعد النشر انسخ الرابط العام إلى `share.url` في `config.js`.
+3. بيانات المشاركة مضبوطة على `https://mega-org.github.io/katb-ketab-invite/` في `index.html` و`share.url` داخل `config.js`.
 
-لمعاينة واتساب/Open Graph بعد النشر، يُفضَّل جعل `og:image` رابطاً مطلقاً، مثلاً:
-
-```html
-<meta property="og:image" content="https://USERNAME.github.io/REPO/assets/img/og.jpg" />
-```
-
-الملف الحالي [`assets/img/og.jpg`](assets/img/og.jpg) جاهز بمقاس مناسب للمعاينة؛ المسار النسبي يعمل محلياً، وواتساب يحتاج الرابط المطلق بعد النشر.
+صورة معاينة واتساب والمنصات هي [`assets/img/invite-card.png`](assets/img/invite-card.png). تستخدم وسوم Open Graph وTwitter رابطاً مطلقاً، مع المقاس والنوع والنص البديل، ويحتوي الموقع كذلك على بيانات Event منظمة لمحركات البحث. عند تغيير رابط النشر يجب تحديث الرابط في `index.html` و`config.js`.
 
 ### Netlify (سحب وإفلات)
 
 1. افتح [Netlify Drop](https://app.netlify.com/drop).
 2. اسحب مجلد المشروع كاملاً (بما فيه `index.html` و`assets/`).
-3. انسخ رابط الموقع إلى `share.url` في `config.js`، وحدّث `og:image` إلى URL مطلق إن أردت معاينة واتساب صحيحة.
+3. استبدل رابط GitHub Pages في `index.html` و`share.url` داخل `config.js` برابط Netlify.
 
 لا حاجة لملف بناء أو أمر `npm` — الموقع ثابت.
 
@@ -75,8 +69,8 @@ venue: {
 index.html
 assets/
   css/     base · intro · sections
-  js/      config · intro · audio · countdown · map · calendar · effects · couple · main
-  img/     hero.jpg · detail.jpg · og.jpg
+  js/      config · intro · audio · countdown · map · calendar · effects · main
+  img/     hero.jpg · detail.jpg · invite-card.png · couple-identity.jpg
   audio/   anisat-rouhi.mp3
 ```
 

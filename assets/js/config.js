@@ -36,10 +36,9 @@ window.INVITE_CONFIG = Object.freeze({
   },
 
   share: {
-    title: 'دعوة كتب كتاب — مجدي وهاجر',
-    text: 'ندعوكم لحضور كتب كتاب مجدي وهاجر — الأربعاء ١١ نوفمبر ٢٠٢٦، مسجد نصار، ميت مزاح.',
-    /** Set after deploy (GitHub Pages / Netlify URL) */
-    url: '',
+    title: 'مجدي وهاجر | دعوة عقد قران',
+    text: 'بكل الحب ندعوكم لمشاركتنا فرحة عقد قران مجدي وهاجر — الأربعاء ١١ نوفمبر ٢٠٢٦، مسجد نصار، ميت مزاح.',
+    url: 'https://mega-org.github.io/katb-ketab-invite/',
   },
 
   audio: {
