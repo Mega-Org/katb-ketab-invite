@@ -70,7 +70,7 @@ index.html
 assets/
   css/     base · intro · sections
   js/      config · intro · audio · countdown · map · calendar · effects · main
-  img/     hero.jpg · detail.jpg · invite-card.png · couple-identity.jpg
+  img/     site-logo.png · hero.jpg · detail.jpg · invite-card.png · couple-identity.png
   audio/   anisat-rouhi.mp3
 ```
 
