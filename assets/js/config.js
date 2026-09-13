@@ -14,10 +14,10 @@ window.INVITE_CONFIG = Object.freeze({
   monogram: 'م & هـ',
   eventLabel: 'كتب كتاب',
 
-  /** Ceremony datetime in Africa/Cairo (ISO with offset UTC+2) */
-  datetime: '2026-11-11T16:00:00+02:00',
+  /** Ceremony datetime in Africa/Cairo (ISO with offset UTC+3 for this date) */
+  datetime: '2026-10-16T16:00:00+03:00',
   timezone: 'Africa/Cairo',
-  dateDisplay: 'الأربعاء ١١ نوفمبر ٢٠٢٦',
+  dateDisplay: 'الجمعة ١٦ أكتوبر ٢٠٢٦',
   timeDisplay: 'بعد صلاة العصر — ٤:٠٠ عصراً',
 
   venue: {
@@ -37,7 +37,7 @@ window.INVITE_CONFIG = Object.freeze({
 
   share: {
     title: 'مجدي وهاجر | دعوة عقد قران',
-    text: 'بكل الحب ندعوكم لمشاركتنا فرحة عقد قران مجدي وهاجر — الأربعاء ١١ نوفمبر ٢٠٢٦، مسجد نصار، ميت مزاح.',
+    text: 'بكل الحب ندعوكم لمشاركتنا فرحة عقد قران مجدي وهاجر — الجمعة ١٦ أكتوبر ٢٠٢٦، مسجد نصار، ميت مزاح.',
     url: 'https://mega-org.github.io/katb-ketab-invite/',
   },
 
