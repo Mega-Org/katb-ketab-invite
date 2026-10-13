@@ -53,7 +53,7 @@ venue: {
 2. Settings → Pages → Source: الفرع `main` (أو `gh-pages`) ومجلد الجذر `/`.
 3. بيانات المشاركة مضبوطة على `https://mega-org.github.io/katb-ketab-invite/` في `index.html` و`share.url` داخل `config.js`.
 
-صورة معاينة واتساب والمنصات هي [`assets/img/invite-card.png`](assets/img/invite-card.png). تستخدم وسوم Open Graph وTwitter رابطاً مطلقاً، مع المقاس والنوع والنص البديل، ويحتوي الموقع كذلك على بيانات Event منظمة لمحركات البحث. عند تغيير رابط النشر يجب تحديث الرابط في `index.html` و`config.js`.
+صورة معاينة واتساب والمنصات هي [`assets/img/og.jpg`](assets/img/og.jpg) (JPEG بمقاس 1200×630 حتى تظهر في واتساب). الكارد الكامل في [`assets/img/invite-card.jpg`](assets/img/invite-card.jpg). تستخدم وسوم Open Graph وTwitter رابطاً مطلقاً، مع المقاس والنوع والنص البديل، ويحتوي الموقع كذلك على بيانات Event منظمة لمحركات البحث. عند تغيير رابط النشر يجب تحديث الرابط في `index.html` و`config.js`.
 
 ### Netlify (سحب وإفلات)
 
@@ -70,7 +70,7 @@ index.html
 assets/
   css/     base · intro · sections
   js/      config · intro · audio · countdown · map · calendar · effects · main
-  img/     site-logo.png · couple-background.jpg · couple-background-mobile.jpg · detail.jpg · invite-card.png · couple-identity.png
+  img/     site-logo.png · couple-background.jpg · couple-background-mobile.jpg · detail.jpg · og.jpg · invite-card.jpg · couple-identity.png
   audio/   anisat-rouhi.mp3
 ```
 
